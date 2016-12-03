@@ -39,7 +39,34 @@
         GPA
       </th>
     </tr>
+    <?php
+        //Get data from table
+        $table = "hwk15_students";
+        $result = mysqli_query($connect, "SELECT * FROM $table");
 
+        while($row = $result->fetch_row()){
+          ?>
+          <tr>
+            <td>
+              <?php $row[0]; ?>
+            </td>
+            <td>
+              <?php $row[1]; ?>
+            </td>
+            <td>
+              <?php $row[2]; ?>
+            </td>
+            <td>
+              <?php $row[3]; ?>
+            </td>
+            <td>
+              <?php $row[4]; ?>
+            </td>
+          </tr>
+          <?php
+        }
+        $result->free();
+    ?>
   </table>
 </body>
 </html>
