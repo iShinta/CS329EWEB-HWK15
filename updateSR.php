@@ -68,7 +68,7 @@ function start() {
     }
     if ($gpa != "") {
       $stmt = mysqli_prepare ($connect, "UPDATE $table SET gpa=? WHERE id= $id");
-      mysqli_stmt_bind_param ($stmt, 's', $gpa);
+      mysqli_stmt_bind_param ($stmt, 'd', $gpa);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
       echo("updated\n\n");
