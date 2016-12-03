@@ -39,6 +39,7 @@
         //Check Menu choice
         if(isset($_POST["action"])){
           $choice = $_POST["action"];
+          print($choice);
 
           if($choice == "insert"){
 
