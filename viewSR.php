@@ -21,14 +21,14 @@ function start() {
   $table = "hwk15_students";
 
 
-  $result = mysqli_query($connect, "SELECT * from $table");
-  while ($row = $result->fetch_row())
-  {
-    print "Last = " . $row[0] . " FirstName = " . $row[1].
-  	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
-  }
-
-  $result->free();
+  // $result = mysqli_query($connect, "SELECT * from $table");
+  // while ($row = $result->fetch_row())
+  // {
+  //   print "Last = " . $row[0] . " FirstName = " . $row[1].
+  // 	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
+  // }
+  //
+  // $result->free();
 
   $id = $_POST["ID"];
   $last = $_POST["LAST"];
