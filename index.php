@@ -2,6 +2,7 @@
 
 <?php
   function begin(){
+    print("Start");
     //not in a session
     if(!isset($_COOKIE["id"])){
       session_start();
