@@ -77,33 +77,35 @@
   }
 
   function showInsert(){
+    ?>
     <form method="post">
-    <table border="0">
-    <tr><td>ID</td>
-    <td><input type="text" name="ID" /></td>
-    </tr>
-    <tr><td>LAST</td>
-    <td><input type="text" name="LAST" /></td>
-    </tr>
-    <tr><td>FIRST</td>
-    <td><input type="text" name="FIRST" /></td>
-    </tr>
+      <table border="0">
+        <tr><td>ID</td>
+        <td><input type="text" name="ID" /></td>
+        </tr>
+        <tr><td>LAST</td>
+        <td><input type="text" name="LAST" /></td>
+        </tr>
+        <tr><td>FIRST</td>
+        <td><input type="text" name="FIRST" /></td>
+        </tr>
 
-    <tr><td>MAJOR</td>
-    <td><input type="text" name="MAJOR" /></td>
-    </tr>
-    <tr><td>GPA</td>
-    <td><input type="text" name="GPA" /></td>
-    </tr>
-    <tr><td><input type="submit" name="submit" value="Submit"/></td>
-    <td><input type="reset" name="reset" value="Reset" /></td>
-    </tr>
-    </table>
+        <tr><td>MAJOR</td>
+        <td><input type="text" name="MAJOR" /></td>
+        </tr>
+        <tr><td>GPA</td>
+        <td><input type="text" name="GPA" /></td>
+        </tr>
+        <tr><td><input type="submit" name="submit" value="Submit"/></td>
+        <td><input type="reset" name="reset" value="Reset" /></td>
+        </tr>
+      </table>
     </form>
+    <?php
   }
 
   function showUpdate(){
-
+    print("");
   }
 
   function showDelete(){
