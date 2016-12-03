@@ -7,7 +7,7 @@
       session_start();
 
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        print("It's a POST");
+        // print("It's a POST");
         //Check credentials
         if(isset($_POST["username"])){
           $username = $_POST["username"];
@@ -26,9 +26,10 @@
 
           //Check if name is authorized
           if(array_key_exists($username, $userlist) && strcmp($userlist[$username], $password)){
-            echo "Login Succeeded. Welcome ".$username. ".<br />";
+            echo "<br />Login Succeeded. Welcome ".$username. ".<br />";
             setcookie("id", $username, time()+900);
             setcookie("timeloggedin", time(), time()+900);
+            echo "<br /><a href=\"index.php\"> Back to the homepage </a>";
           }else{
             echo "Login Failed.<br />Bad username or password";
             echo "<br />You entered username: ".$username;
@@ -40,7 +41,7 @@
         logIn();
       }
     }else{
-      print("Welcome back ".$_COOKIE["id"]);
+      print("<br />Welcome back ".$_COOKIE["id"]);
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
         print("It's a POST");
         //Check Menu choice
@@ -170,7 +171,7 @@
 
   function logIn(){
     ?>
-    <form method="post" action="#">
+    <form method="post">
       <table style="border: double 1px;">
         <tr>
           <td>
