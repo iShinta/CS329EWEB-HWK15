@@ -147,18 +147,24 @@
     ?>
     </table>
     <?php
+    mysqli_close($connect);
   }
 
   function showMenu(){
     ?>
-    <form method="post" action="#">
+    <!-- <form method="post" action="#">
       <input type="radio" name="action" value="insert" checked> Insert Student Record<br />
       <input type="radio" name="action" value="update"> Update Student Record<br />
       <input type="radio" name="action" value="delete">Delete Student Record<br />
       <input type="radio" name="action" value="view">View Student Record<br />
       <input type="radio" name="action" value="logout">Logout<br />
       <input type="submit" name="submit" value="Choose this one" />
-    </form>
+    </form> -->
+    <a href="insertSR.php">Insert Student Record</a>
+    <a href="updateSR.php">Update Student Record</a>
+    <a href="deleteSR.php">Delete Student Record</a>
+    <a href="viewSR.php">View Student Record</a>
+    <a href="logoutSR.php">Logout</a>
     <?php
   }
 
