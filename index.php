@@ -8,7 +8,7 @@
       session_start();
 
       print("No cookie");
-      if($SERVER['REQUEST_METHOD'] === 'POST'){
+      if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //Check credentials
         if(isset($_POST["username"])){
           $username = $_POST["username"];
