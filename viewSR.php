@@ -76,10 +76,10 @@ function showTable() {
 
 <html>
 <head>
-<title> INSERT INTO TABLE </title>
+<title> VIEW TABLE </title>
 </head>
 <body>
-<h3> INSERT INTO TABLE </h3>
+<h3> VIEW TABLE </h3>
 <?php start(); ?>
 
 </body>
