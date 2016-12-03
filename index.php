@@ -49,16 +49,16 @@
           print($choice);
 
           if($choice == "insert"){
+            showInsert();
           }else if($choice == "update"){
-            print("");
+
           }else if($choice == "delete"){
-            print("");
+
           }else if($choice == "view"){
+            showTable();
           }else if($choice == "logout"){
+            destroySession();
           }
-        }else if($_POST["event"])){
-          $event = $_POST["event"];
-          //Delete
         }
       }else{
         showMenu();
@@ -147,7 +147,6 @@
     ?>
     </table>
     <?php
-    mysqli_close($connect);
   }
 
   function showMenu(){
