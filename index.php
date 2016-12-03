@@ -163,10 +163,6 @@
     </form>
     <?php
   }
-
-  function logInProc(){
-    $PDOStatement
-  }
 ?>
 
 
