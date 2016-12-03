@@ -13,6 +13,7 @@
           $username = $_POST["username"];
           $password = $_POST["password"];
 
+          print("Check Database");
           $fh = fopen("./dbase/passwd", "r");
           //Check if username is already taken
           $userlist = Array();
@@ -24,6 +25,7 @@
           }
           fclose($fh);
 
+          print("Verification");
           //Check if name is authorized
           if(array_key_exists($username, $userlist) && strcmp($userlist[$username], $password)){
             echo "Login Succeeded. Welcome ".$username. ".<br />";
