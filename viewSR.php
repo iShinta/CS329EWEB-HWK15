@@ -85,7 +85,6 @@ function start() {
       </table>
     <?php
   } else {
-    print("Go");
       if ($last != "" && $first == "") {
         $result = mysqli_query($connect, "SELECT * from $table WHERE LAST = \"$last\"");
         ?>
