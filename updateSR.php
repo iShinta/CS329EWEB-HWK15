@@ -4,9 +4,9 @@
 function start() {
   showTable();
   $host = "fall-2016.cs.utexas.edu";
-  $user = "minhtuan";
-  $pwd = "DK4Q4B3nPy";
-  $dbs = "cs329e_minhtuan";
+  $user = "minhtri";
+  $pwd = "EGmf5_qbe1";
+  $dbs = "cs329e_minhtri";
   $port = "3306";
 
   $connect = mysqli_connect ($host, $user, $pwd, $dbs, $port);
