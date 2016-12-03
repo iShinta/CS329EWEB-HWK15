@@ -7,6 +7,7 @@
       session_start();
 
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        print("It's a POST");
         //Check credentials
         if(isset($_POST["username"])){
           $username = $_POST["username"];
