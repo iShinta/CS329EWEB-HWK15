@@ -3,9 +3,6 @@
 <?php
 function start() {
   showTable();
-}
-
-function showTable() {
   $servername = "fall-2016.cs.utexas.edu";
   $username = "minhtri";
   $password = "EGmf5_qbe1";
@@ -20,68 +17,260 @@ function showTable() {
   }
 
   print "Connected to ". mysqli_get_host_info($connect) . "<br /><br />\n";
-  ?>
-  <table>
-    <tr>
-      <th>
-        ID
-      </th>
-      <th>
-        Last
-      </th>
-      <th>
-        First
-      </th>
-      <th>
-        Major
-      </th>
-      <th>
-        GPA
-      </th>
-    </tr>
-  <?php
-  //Get data from table
-  $table = "hwk15_students";
-  $result = mysqli_query($connect, "SELECT * FROM $table ORDER BY LAST ASC, FIRST ASC");
 
-  while($row = $result->fetch_row()){
-    ?>
-    <tr>
-      <td>
-        <?php echo $row[0]; ?>
-      </td>
-      <td>
-        <?php echo $row[1]; ?>
-      </td>
-      <td>
-        <?php echo $row[2]; ?>
-      </td>
-      <td>
-        <?php echo $row[3]; ?>
-      </td>
-      <td>
-        <?php echo $row[4]; ?>
-      </td>
-    </tr>
-    <?php
+  $table = "hwk15_students";
+
+
+  $result = mysqli_query($connect, "SELECT * from $table");
+  while ($row = $result->fetch_row())
+  {
+    print "Last = " . $row[0] . " FirstName = " . $row[1].
+  	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
   }
+
   $result->free();
-  ?>
-  </table>
-  <?php
-  mysqli_close($connect);
-  ?><a href="index.php"> Back to the homepage </a><?php
+
+  $id = $_POST["ID"];
+  $last = $_POST["LAST"];
+  $first = $_POST["FIRST"];
+
+  if ($id != "") {
+    $result = mysqli_query($connect, "SELECT * from $table WHERE ID = $id");
+    ?>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Last
+        </th>
+        <th>
+          First
+        </th>
+        <th>
+          Major
+        </th>
+        <th>
+          GPA
+        </th>
+      </tr>
+    <?php
+    //Get data from table
+
+    while($row = $result->fetch_row()){
+      ?>
+      <tr>
+        <td>
+          <?php echo $row[0]; ?>
+        </td>
+        <td>
+          <?php echo $row[1]; ?>
+        </td>
+        <td>
+          <?php echo $row[2]; ?>
+        </td>
+        <td>
+          <?php echo $row[3]; ?>
+        </td>
+        <td>
+          <?php echo $row[4]; ?>
+        </td>
+      </tr>
+      <?php
+    }
+
+      $result->free();
+      ?>
+      </table>
+    <?php
+  } else {
+    print("Go");
+      if ($last != "" && $first == "") {
+        $result = mysqli_query($connect, "SELECT * from $table WHERE LAST = \"$last\"");
+        ?>
+        <table>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Last
+            </th>
+            <th>
+              First
+            </th>
+            <th>
+              Major
+            </th>
+            <th>
+              GPA
+            </th>
+          </tr>
+        <?php
+        //Get data from table
+
+        while($row = $result->fetch_row()){
+          ?>
+          <tr>
+            <td>
+              <?php echo $row[0]; ?>
+            </td>
+            <td>
+              <?php echo $row[1]; ?>
+            </td>
+            <td>
+              <?php echo $row[2]; ?>
+            </td>
+            <td>
+              <?php echo $row[3]; ?>
+            </td>
+            <td>
+              <?php echo $row[4]; ?>
+            </td>
+          </tr>
+          <?php
+        }
+        $result->free();
+        ?>
+        </table>
+        <?php
+      }
+      if ($last != "" && $first != "") {
+        $result = mysqli_query($connect, "SELECT * from $table WHERE LAST = \"$last\" AND FIRST = \"$first\"");
+        ?>
+        <table>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Last
+            </th>
+            <th>
+              First
+            </th>
+            <th>
+              Major
+            </th>
+            <th>
+              GPA
+            </th>
+          </tr>
+        <?php
+        //Get data from table
+
+        while($row = $result->fetch_row()){
+          ?>
+          <tr>
+            <td>
+              <?php echo $row[0]; ?>
+            </td>
+            <td>
+              <?php echo $row[1]; ?>
+            </td>
+            <td>
+              <?php echo $row[2]; ?>
+            </td>
+            <td>
+              <?php echo $row[3]; ?>
+            </td>
+            <td>
+              <?php echo $row[4]; ?>
+            </td>
+          </tr>
+          <?php
+        }
+        $result->free();
+        ?>
+        </table>
+        <?php
+      }
+      if ($last == "" && $first != "") {
+          $result = mysqli_query($connect, "SELECT * from $table WHERE FIRST = \"$first\"");
+          ?>
+          <table>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Last
+              </th>
+              <th>
+                First
+              </th>
+              <th>
+                Major
+              </th>
+              <th>
+                GPA
+              </th>
+            </tr>
+          <?php
+          //Get data from table
+
+          while($row = $result->fetch_row()){
+            ?>
+            <tr>
+              <td>
+                <?php echo $row[0]; ?>
+              </td>
+              <td>
+                <?php echo $row[1]; ?>
+              </td>
+              <td>
+                <?php echo $row[2]; ?>
+              </td>
+              <td>
+                <?php echo $row[3]; ?>
+              </td>
+              <td>
+                <?php echo $row[4]; ?>
+              </td>
+            </tr>
+            <?php
+          }
+          $result->free();
+          ?>
+          </table>
+          <?php
+      }
+  }
 }
+
+function showTable() {?>
+  <form method="post">
+  <table border="0">
+  <tr><td>ID</td>
+  <td><input type="text" name="ID" /></td>
+  </tr>
+  <tr><td>LAST</td>
+  <td><input type="text" name="LAST" /></td>
+  </tr>
+  <tr><td>FIRST</td>
+  <td><input type="text" name="FIRST" /></td>
+  </tr>
+
+  <tr><td><input type="submit" name="submit" value="Retrieve"/></td>
+  <td><input type="reset" name="reset" value="Reset" /></td>
+  </tr>
+  </table>
+  </form>
+<?php
+}
+// Close connection to the database
+mysqli_close($connect);
 ?>
 
 
 <html>
 <head>
-<title> VIEW TABLE </title>
+<title> Retrieve from TABLE </title>
 </head>
 <body>
-<h3> VIEW TABLE </h3>
+<h3> Retrieve from TABLE </h3>
 <?php start(); ?>
-
+<a href="viewAllSR.php">View All Student Record</a><br />
 </body>
 </html>
