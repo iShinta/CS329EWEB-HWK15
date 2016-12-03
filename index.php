@@ -160,11 +160,11 @@
       <input type="radio" name="action" value="logout">Logout<br />
       <input type="submit" name="submit" value="Choose this one" />
     </form> -->
-    <a href="insertSR.php">Insert Student Record</a>
-    <a href="updateSR.php">Update Student Record</a>
-    <a href="deleteSR.php">Delete Student Record</a>
-    <a href="viewSR.php">View Student Record</a>
-    <a href="logoutSR.php">Logout</a>
+    <a href="insertSR.php">Insert Student Record</a><br />
+    <a href="updateSR.php">Update Student Record</a><br />
+    <a href="deleteSR.php">Delete Student Record</a><br />
+    <a href="viewSR.php">View Student Record</a><br />
+    <a href="logoutSR.php">Logout</a><br />
     <?php
   }
 
