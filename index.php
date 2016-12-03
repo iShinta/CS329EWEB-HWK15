@@ -59,6 +59,16 @@
           }else if($choice == "logout"){
             destroySession();
           }
+        }else if($_POST["event"])){
+          $event = $_POST["event"];
+          //Delete
+          if($event == 3){
+            if(isset($_POST["ID"]){
+              $id = $_POST["ID"];
+              executeDelete($id);
+            }
+          }
+
         }
       }else{
         showMenu();
@@ -67,7 +77,29 @@
   }
 
   function showInsert(){
+    <form method="post">
+    <table border="0">
+    <tr><td>ID</td>
+    <td><input type="text" name="ID" /></td>
+    </tr>
+    <tr><td>LAST</td>
+    <td><input type="text" name="LAST" /></td>
+    </tr>
+    <tr><td>FIRST</td>
+    <td><input type="text" name="FIRST" /></td>
+    </tr>
 
+    <tr><td>MAJOR</td>
+    <td><input type="text" name="MAJOR" /></td>
+    </tr>
+    <tr><td>GPA</td>
+    <td><input type="text" name="GPA" /></td>
+    </tr>
+    <tr><td><input type="submit" name="submit" value="Submit"/></td>
+    <td><input type="reset" name="reset" value="Reset" /></td>
+    </tr>
+    </table>
+    </form>
   }
 
   function showUpdate(){
@@ -76,27 +108,34 @@
 
   function showDelete(){
     ?>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
-        <th>
-          Last
-        </th>
-        <th>
-          First
-        </th>
-        <th>
-          Major
-        </th>
-        <th>
-          GPA
-        </th>
-      </tr>
-      <tr>
-    </table>
+    <form method="post">
+      <input type="hidden" name="event" value="3" />
+      <table>
+        <tr>
+          <td>ID</td>
+          <td><input type="text" name="ID" /></td>
+        </tr>
+        <tr>
+          <td><input type="submit" name="submit" value="Submit"/></td>
+          <td><input type="reset" name="reset" value="Reset" /></td>
+        </tr>
+      </table>
+    </form>
     <?php
+  }
+
+  function executeDelete($id){
+    $servername = "fall-2016.cs.utexas.edu";
+    $username = "minhtri";
+    $password = "EGmf5_qbe1";
+    $dbname = "cs329e_minhtri";
+    $port = "3306";
+    $table = "hwk15_students";
+
+    $connect = mysqli_connect ($servername, $username, $password, $dbname);
+    mysqli_query($connect, "DELETE FROM $table WHERE ID='$id'");
+    print "Rows deleted: " . mysqli_affected_rows($connect) . "<br/><br />\n";
+    mysqli_close($connect);
   }
 
   function connect(){
@@ -180,6 +219,7 @@
     ?>
     </table>
     <?php
+    mysqli_close($connect);
   }
 
   function showMenu(){
