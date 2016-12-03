@@ -21,14 +21,14 @@ function start() {
   $table = "hwk15_students";
 
 
-  $result = mysqli_query($connect, "SELECT * from $table");
-  while ($row = $result->fetch_row())
-  {
-    print "ID = " . $row[0] . " LastName = " . $row[1].
-    " First = " . $row[2] . " Major = " . $row[3] . "<br /><br />\n";
-  }
-
-  $result->free();
+  // $result = mysqli_query($connect, "SELECT * from $table");
+  // while ($row = $result->fetch_row())
+  // {
+  //   print "ID = " . $row[0] . " LastName = " . $row[1].
+  //   " First = " . $row[2] . " Major = " . $row[3] . "<br /><br />\n";
+  // }
+  //
+  // $result->free();
 
   $id = $_POST["ID"];
   $last = $_POST["LAST"];
@@ -74,14 +74,16 @@ function start() {
       echo("updated\n\n");
     }
 
-    $result = mysqli_query($connect, "SELECT * from $table");
-    while ($row = $result->fetch_row())
-    {
-      print "ID = " . $row[0] . " LastName = " . $row[1].
-    	" First = " . $row[2] . " Major = " . $row[3] . "<br /><br />\n";
-    }
+    // $result = mysqli_query($connect, "SELECT * from $table");
+    // while ($row = $result->fetch_row())
+    // {
+    //   print "ID = " . $row[0] . " LastName = " . $row[1].
+    // 	" First = " . $row[2] . " Major = " . $row[3] . "<br /><br />\n";
+    // }
+    //
+    // $result->free();
 
-    $result->free();
+    ?><a href="index.php"> Back to the homepage </a><?php
 
   } else {
     echo("empty field(s)");

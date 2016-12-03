@@ -21,14 +21,14 @@ function start() {
   $table = "hwk15_students";
 
 
-  $result = mysqli_query($connect, "SELECT * from $table");
-  while ($row = $result->fetch_row())
-  {
-    print "LastName = " . $row[0] . " FirstName = " . $row[1].
-  	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
-  }
-
-  $result->free();
+  // $result = mysqli_query($connect, "SELECT * from $table");
+  // while ($row = $result->fetch_row())
+  // {
+  //   print "LastName = " . $row[0] . " FirstName = " . $row[1].
+  // 	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
+  // }
+  //
+  // $result->free();
 
   $id = $_POST["ID"];
   $last = $_POST["LAST"];
@@ -41,14 +41,16 @@ function start() {
     mysqli_query($connect, "DELETE FROM $table WHERE id= $id");
     echo("deleted\n\n");
 
-    $result = mysqli_query($connect, "SELECT * from $table");
-    while ($row = $result->fetch_row())
-    {
-      print "LastName = " . $row[0] . " FirstName = " . $row[1].
-    	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
-    }
+    // $result = mysqli_query($connect, "SELECT * from $table");
+    // while ($row = $result->fetch_row())
+    // {
+    //   print "LastName = " . $row[0] . " FirstName = " . $row[1].
+    // 	" Major = " . $row[2] . " Birthday = " . $row[3] . "<br /><br />\n";
+    // }
+    //
+    // $result->free();
 
-    $result->free();
+    ?><a href="index.php"> Back to the homepage </a><?php
 
   }
   if($last != "" && $first != "") {

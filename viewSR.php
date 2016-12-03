@@ -70,6 +70,7 @@ function showTable() {
   </table>
   <?php
   mysqli_close($connect);
+  ?><a href="index.php"> Back to the homepage </a><?php
 }
 ?>
 
