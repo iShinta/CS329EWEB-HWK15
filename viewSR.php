@@ -42,7 +42,7 @@ function showTable() {
   <?php
   //Get data from table
   $table = "hwk15_students";
-  $result = mysqli_query($connect, "SELECT * FROM $table");
+  $result = mysqli_query($connect, "SELECT * FROM $table ORDER BY LAST DESC, FIRST DESC");
 
   while($row = $result->fetch_row()){
     ?>
