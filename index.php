@@ -78,6 +78,6 @@
 </head>
 
 <body>
-  <?php connect(); ?>
+  <?php showTable(); ?>
 </body>
 </html>
