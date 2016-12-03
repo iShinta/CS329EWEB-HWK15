@@ -2,19 +2,16 @@
 
 <?php
   function begin(){
-    print("Start");
     //not in a session
     if(!isset($_COOKIE["id"])){
       session_start();
 
-      print("No cookie");
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //Check credentials
         if(isset($_POST["username"])){
           $username = $_POST["username"];
           $password = $_POST["password"];
 
-          print("Check Database");
           $fh = fopen("./dbase/passwd", "r");
           //Check if username is already taken
           $userlist = Array();
@@ -26,7 +23,6 @@
           }
           fclose($fh);
 
-          print("Verification");
           //Check if name is authorized
           if(array_key_exists($username, $userlist) && strcmp($userlist[$username], $password)){
             echo "Login Succeeded. Welcome ".$username. ".<br />";
@@ -38,18 +34,31 @@
             echo "<br />and Password: ".$password;
             echo "<br /><a href=\"index.php\"> Back to the homepage </a>";
           }
-        }else{
-
         }
-      }else{
+
+        //Check Menu choice
+        if(isset($_POST["action"])){
+          $choice = $_POST["action"];
+
+          if($choice == "insert"){
+
+          }else if($choice == "update"){
+
+          }else if($choice == "delete"){
+
+          }else if($choice == "view"){
+            showTable();
+          }else if($choice == "logout"){
+
+          }
+        }
+      }else{ //GET
         logIn();
       }
     }
     //not logged in - Show sign in
     else{
-      //show table
-      showTable();
-
+      showMenu();
     }
   }
 
@@ -133,6 +142,19 @@
     $result->free();
     ?>
     </table>
+    <?php
+  }
+
+  function showMenu(){
+    ?>
+    <form method="post" action="#">
+      <input type="radio" name="action" value="insert" checked> Insert Student Record<br />
+      <input type="radio" name="action" value="update"> Update Student Record<br />
+      <input type="radio" name="action" value="delete">Delete Student Record<br />
+      <input type="radio" name="action" value="view">View Student Record<br />
+      <input type="radio" name="action" value="logout">Logout<br />
+      <input type="submit" name="submit" value="Choose this one" />
+    </form>
     <?php
   }
 
