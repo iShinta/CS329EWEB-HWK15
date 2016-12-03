@@ -49,7 +49,7 @@
           print($choice);
 
           if($choice == "insert"){
-
+            showInsert();
           }else if($choice == "update"){
 
           }else if($choice == "delete"){
@@ -57,13 +57,46 @@
           }else if($choice == "view"){
             showTable();
           }else if($choice == "logout"){
-
+            destroySession();
           }
         }
       }else{
         showMenu();
       }
     }
+  }
+
+  function showInsert(){
+
+  }
+
+  function showUpdate(){
+
+  }
+
+  function showDelete(){
+    ?>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Last
+        </th>
+        <th>
+          First
+        </th>
+        <th>
+          Major
+        </th>
+        <th>
+          GPA
+        </th>
+      </tr>
+      <tr>
+    </table>
+    <?php
   }
 
   function connect(){
