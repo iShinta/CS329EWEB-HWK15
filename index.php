@@ -41,7 +41,7 @@
         logIn();
       }
     }else{
-      print("<br />Welcome back ".$_COOKIE["id"]);
+      print("<br />Welcome back ".$_COOKIE["id"]."<br />");
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
         print("It's a POST");
         //Check Menu choice
