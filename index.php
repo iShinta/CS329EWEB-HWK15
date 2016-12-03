@@ -12,7 +12,7 @@
     $dbname = "cs329e_minhtri";
     $port = "3306";
 
-    $connect = mysqli_connect ($host, $user, $pwd, $dbs);
+    $connect = mysqli_connect ($servername, $username, $password, $dbname);
 
     if (empty($connect))
     {
