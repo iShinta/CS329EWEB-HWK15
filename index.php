@@ -12,8 +12,8 @@
         if(isset($_POST["username"])){
           $username = $_POST["username"];
           $password = $_POST["password"];
-        }else{
-          $fh = fopen("dbase/passwd", "r");
+
+          $fh = fopen("./dbase/passwd", "r");
           //Check if username is already taken
           $userlist = Array();
           while(!feof($fh)){
@@ -35,6 +35,8 @@
             echo "<br />and Password: ".$password;
             echo "<br /><a href=\"index.php\"> Back to the homepage </a>";
           }
+        }else{
+
         }
       }else{
         logIn();
