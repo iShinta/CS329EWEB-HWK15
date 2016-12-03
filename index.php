@@ -7,6 +7,7 @@
     if(!isset($_COOKIE["id"])){
       session_start();
 
+      print("No cookie");
       if($SERVER['REQUEST_METHOD'] === 'POST'){
         //Check credentials
         if(isset($_POST["username"])){
@@ -144,7 +145,7 @@
             Username
           </td>
           <td>
-            <input type="text" name="username">
+            <input type="text" name="username" />
           </td>
         </tr>
         <tr>
@@ -152,7 +153,7 @@
             Password
           </td>
           <td>
-            <input type="text" name="password">
+            <input type="text" name="password" />
           </td>
         </tr>
         <tr>
