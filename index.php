@@ -39,10 +39,10 @@
       }else{ //GET
         logIn();
       }
-    }
-    //not logged in - Show sign in
-    else{
+    }else{
+      print("Welcome back ".$_COOKIE["id"]);
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        print("It's a POST");
         //Check Menu choice
         if(isset($_POST["action"])){
           $choice = $_POST["action"];
