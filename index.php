@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 
 <?php
-  $servername = "fall-2016.cs.utexas.edu";
-  $username = "minhtri";
-  $password = "EGmf5_qbe1";
-  $dbname = "cs329e_minhtri";
-  $port = "3306";
+  $servername;
+  $username;
+  $password;
+  $dbname;
+  $port;
+  $connect;
 
   function connect(){
+    $servername = "fall-2016.cs.utexas.edu";
+    $username = "minhtri";
+    $password = "EGmf5_qbe1";
+    $dbname = "cs329e_minhtri";
+    $port = "3306";
+
     $connect = mysqli_connect ($servername, $username, $password, $dbname);
 
     if (empty($connect))
