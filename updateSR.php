@@ -46,28 +46,28 @@ function start() {
     // $stmt->execute();
 
     if ($last != "") {
-      $stmt = mysqli_prepare ($connect, "UPDATE $table SET LastName=? WHERE id= $id");
+      $stmt = mysqli_prepare ($connect, "UPDATE $table SET LAST=? WHERE id= $id");
       mysqli_stmt_bind_param ($stmt, 's', $last);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
       echo("updated\n\n");
     }
     if ($first != "") {
-      $stmt = mysqli_prepare ($connect, "UPDATE $table SET FirstName=? WHERE id= $id");
+      $stmt = mysqli_prepare ($connect, "UPDATE $table SET FIRST=? WHERE id= $id");
       mysqli_stmt_bind_param ($stmt, 's', $first);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
       echo("updated\n\n");
     }
     if ($major != "") {
-      $stmt = mysqli_prepare ($connect, "UPDATE $table SET major=? WHERE id= $id");
+      $stmt = mysqli_prepare ($connect, "UPDATE $table SET MAJOR=? WHERE id= $id");
       mysqli_stmt_bind_param ($stmt, 's', $major);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
       echo("updated\n\n");
     }
     if ($gpa != "") {
-      $stmt = mysqli_prepare ($connect, "UPDATE $table SET gpa=? WHERE id= $id");
+      $stmt = mysqli_prepare ($connect, "UPDATE $table SET GPA=? WHERE id= $id");
       mysqli_stmt_bind_param ($stmt, 'd', $gpa);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
