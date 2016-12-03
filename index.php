@@ -36,7 +36,13 @@
             echo "<br /><a href=\"index.php\"> Back to the homepage </a>";
           }
         }
-
+      }else{ //GET
+        logIn();
+      }
+    }
+    //not logged in - Show sign in
+    else{
+      if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //Check Menu choice
         if(isset($_POST["action"])){
           $choice = $_POST["action"];
@@ -54,13 +60,9 @@
 
           }
         }
-      }else{ //GET
-        logIn();
+      }else{
+        showMenu();
       }
-    }
-    //not logged in - Show sign in
-    else{
-      showMenu();
     }
   }
 
